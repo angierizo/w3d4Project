@@ -36,10 +36,10 @@ function postpone(cb, delay){
 return slow;
 }
 
-const sayHello = () => console.log('hi');
-const slowHello = postpone(sayHello, 1000);
-console.log(slowHello); // [Function]
-slowHello(); // prints 'hi' after 1000 ms
+// const sayHello = () => console.log('hi');
+// const slowHello = postpone(sayHello, 1000);
+// console.log(slowHello); // [Function]
+// slowHello(); // prints 'hi' after 1000 ms
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
   module.exports = postpone;
