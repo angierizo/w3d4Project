@@ -23,19 +23,31 @@ slowPrintSum(2, 8); // prints '10' after 500 ms
 >>postponewithArgs() === setInterval(cb, delay)
 */
 
+// function postponeWithArgs(cb, delay){
+//   return function slow(...args){
+//     setTimeout(function(){
+//       cb(...args)
+//     }, delay)
+//   }
+
+// }
+
 function postponeWithArgs(cb, delay){
-  return function slow(...args){
-    setInterval(function(){
-      cb(...args)
-    }, delay)
+
+  return function(...args){
+    setTimeout(cb, delay, ...args);
   }
 
 }
 
-const greet = (person) => console.log('Hello ' + person + '!');
-const slowGreet = postponeWithArgs(greet, 1000);
-slowGreet('Rose'); // prints 'Hello Rose!' after 1000 ms
-slowGreet('Alex'); // prints 'Hello Alex!' after 1000 ms
+
+
+
+// const greet = (person) => console.log('Hello ' + person + '!');
+// const slowGreet = postponeWithArgs(greet, 1000);
+// slowGreet('Rose'); // prints 'Hello Rose!' after 1000 ms
+// slowGreet('Alex'); // prints 'Hello Alex!' after 1000 ms
+//console.log(postponeWithArgs)
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
   module.exports = postponeWithArgs;
