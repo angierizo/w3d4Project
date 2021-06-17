@@ -22,6 +22,36 @@ setSecondsTimeoutArgs(function(arg1, arg2) {
 }, 0.7, 'hello', 'world'); // should print 'hello-world' after 700ms
 ***********************************************************************/
 
+/*
+
+main function(callback, delay, ...args)
+
+function will use set timeout passing back the callback delay and ...args
+
+let seconds = delay * 1000 // use this
+
+
+
+*/
+
+function printSum(callback, delay, ...args) {
+
+  setTimeout(callback, delay*1000, ...args)
+
+}
+
+
+
+
+function printSum(num1, num2, num3) {
+  console.log(num1 + num2 + num3);
+}
+setSecondsTimeoutArgs(printSum, 0.25, 5, 1, 4); // should print '10' after 250ms
+
+setSecondsTimeoutArgs(function(arg1, arg2) {
+  console.log(arg1 + '-' + arg2);
+}, 0.7, 'hello', 'world'); // should print 'hello-world' after 700ms
+
 
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
